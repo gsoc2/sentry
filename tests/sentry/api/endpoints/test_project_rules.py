@@ -620,7 +620,9 @@ class CreateProjectRuleTest(ProjectRuleBaseTestCase):
         "sentry.integrations.slack.actions.notification.get_channel_id",
         return_value=("#", None, True),
     )
-    @patch("sentry.tasks.integrations.slack.find_channel_id_for_rule.apply_async")
+    @patch(
+        "sentry.tasks.integrations.slack.find_channel_id_for_rule.find_channel_id_for_rule.apply_async"
+    )
     @patch("sentry.integrations.slack.utils.rule_status.uuid4")
     def test_kicks_off_slack_async_job(
         self,

@@ -31,7 +31,9 @@ class OrganizationProjectsExperimentCreateTest(APITestCase):
         self.login_as(user=self.user)
         self.email_username = fetch_slugifed_email_username(self.user.email)
         self.t1 = f"team-{self.email_username}"
-        self.mock_experiment_get = patch("sentry.experiments.manager.get", return_value=1).start()
+        self.mock_experiment_get = patch(
+            "sentry.experiments.manager.ExperimentManager.get", return_value=1
+        ).start()
 
     @cached_property
     def path(self):
