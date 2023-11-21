@@ -414,6 +414,21 @@ class Quota(Service):
                     reason_code="project_abuse_limit",
                 )
 
+    def get_monitor_quota(self, project):
+        from sentry.monitors.rate_limit import get_project_monitor_rate_limit
+
+        limit = get_project_monitor_rate_limit(project)
+
+        return QuotaConfig(
+            id="mrl",
+            window=60,
+            limit=limit,
+            scope=QuotaScope.PROJECT,
+            scope_id=project.id,
+            categories=[DataCategory.MONITOR],
+            reason_code="monitor_rate_limit",
+        )
+
     def get_project_quota(self, project):
         from sentry.models.options.organization_option import OrganizationOption
         from sentry.models.organization import Organization
