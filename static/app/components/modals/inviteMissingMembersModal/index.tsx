@@ -1,4 +1,4 @@
-import {Fragment, useState} from 'react';
+import {Fragment, useState, useRef} from 'react';
 import {css} from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -200,6 +200,7 @@ export function InviteMissingMembersModal({
       isPlural: selectedCount !== 1 ? 's' : '',
     });
   };
+  const wrapperRef = useRef(null);
 
   const hookRenderer: InviteModalRenderFunc = ({sendInvites, canSend, headerInfo}) => (
     <Fragment>
@@ -228,6 +229,7 @@ export function InviteMissingMembersModal({
         {memberInvites?.map((member, i) => {
           const checked = member.selected;
           const username = member.externalId.split(':').pop();
+          console.log(wrapperRef.current);
           return (
             <Fragment key={i}>
               <div>
@@ -258,7 +260,7 @@ export function InviteMissingMembersModal({
                 roles={allowedRoles}
                 disableUnallowed
                 onChange={value => setRole(value?.value, i)}
-                menuPortalTarget={document.body}
+                menuPortalTarget={wrapperRef.current}
                 isInsideModal
               />
               <TeamSelector
@@ -309,18 +311,23 @@ export function InviteMissingMembersModal({
   );
 
   return (
-    <InviteModalHook
-      organization={organization}
-      willInvite
-      onSendInvites={sendMemberInvites}
-    >
-      {hookRenderer}
-    </InviteModalHook>
+    <Wrapper ref={wrapperRef}>
+      <InviteModalHook
+        organization={organization}
+        willInvite
+        onSendInvites={sendMemberInvites}
+      >
+        {hookRenderer}
+      </InviteModalHook>
+    </Wrapper>
   );
 }
 
 export default InviteMissingMembersModal;
 
+const Wrapper = styled('div')`
+  position: relative;
+`;
 const StyledPanelTable = styled(PanelTable)`
   grid-template-columns: max-content 1fr max-content 1fr 1fr;
   overflow: scroll;
