@@ -4,7 +4,6 @@ import responses
 from django.test import RequestFactory, override_settings
 from pytest import raises
 
-from sentry.net.http import Session
 from sentry.shared_integrations.exceptions import ApiHostError
 from sentry.shared_integrations.response.base import BaseApiResponse
 from sentry.silo import SiloMode
