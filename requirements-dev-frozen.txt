@@ -6,7 +6,7 @@
 #
 --index-url https://pypi.devinfra.sentry.io/simple
 
-aiohttp==3.8.5
+aiohttp==3.9.0
 aiosignal==1.3.1
 amqp==2.6.1
 asgiref==3.7.2
@@ -32,7 +32,7 @@ confluent-kafka==2.1.1
 covdefaults==2.3.0
 coverage==6.3.3
 croniter==1.3.10
-cryptography==39.0.1
+cryptography==41.0.6
 cssselect==1.0.3
 cssutils==2.4.0
 datadog==0.29.3
@@ -71,7 +71,7 @@ google-crc32c==1.5.0
 google-resumable-media==2.3.3
 googleapis-common-protos==1.56.4
 grpc-google-iam-v1==0.12.4
-grpcio==1.56.0
+grpcio==1.56.2
 grpcio-status==1.56.0
 h11==0.13.0
 hiredis==0.3.1
@@ -115,7 +115,7 @@ pep517==0.12.0
 petname==2.6
 phabricator==0.7.0
 phonenumberslite==8.12.55
-pillow==9.3.0
+pillow==10.2.0
 pip-tools==6.7.0
 planout==0.6.0
 platformdirs==2.5.2
@@ -131,7 +131,7 @@ pyasn1-modules==0.2.4
 pycodestyle==2.11.0
 pycountry==17.5.14
 pycparser==2.21
-pydantic==1.10.9
+pydantic==1.10.13
 pyflakes==3.1.0
 pyjwt==2.4.0
 pyopenssl==23.0.0
@@ -168,7 +168,7 @@ rfc3339-validator==0.1.2
 rfc3986-validator==0.1.1
 rsa==4.8
 s3transfer==0.6.1
-selenium==4.3.0
+selenium==4.15.1
 sentry-arroyo==2.14.21
 sentry-cli==2.16.0
 sentry-forked-django-stubs==4.2.6.post3
@@ -218,11 +218,11 @@ typing-extensions==4.5.0
 ua-parser==0.10.0
 unidiff==0.7.4
 uritemplate==4.1.1
-urllib3==1.26.11
+urllib3==1.26.18
 vine==1.3.0
 virtualenv==20.14.1
 websocket-client==1.3.2
-werkzeug==2.2.3
+werkzeug==2.3.8
 wheel==0.38.4
 wrapt==1.14.1
 wsproto==1.1.0
@@ -232,4 +232,4 @@ zstandard==0.18.0
 
 # The following packages are considered to be unsafe in a requirements file:
 pip==22.1.2
-setuptools==56.0.0
+setuptools==65.5.1
